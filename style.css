@@ -185,3 +185,33 @@ body       { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
   #testimonialCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
   #testimonialCarousel .carousel-control-next:hover .carousel-control-next-icon{ transform:none; }
 }
+
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 2000;               /* boven alles */
+  transition: opacity .4s ease, visibility .4s ease;
+}
+.preloader.preloader-hidden {  /* wordt door JS toegevoegd */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-bus {
+  width: 400px;
+  max-width: 90vw;
+  height: auto;
+}
+
+/* voortgangsbalk-animatie */
+@keyframes loader-grow {
+  from { width: 0%;  }
+  to   { width: 100%; }
+}
+.preloader .progress-bar {
+  width: 0%;                    /* startpositie */
+  background: var(--bw-light);  /* jouw lichtblauw */
+  animation: loader-grow 2s linear forwards;
+}
