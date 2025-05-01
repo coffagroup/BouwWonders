@@ -1,18 +1,23 @@
 /* ─────────── PRELOADER ─────────── */
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
+  const bus       = document.querySelector('.preloader-bus');
 
-  /* wacht 2 s (de progress-bar animatie duurt net zo lang) */
+  /* Na 1 s zoomt de bus subtiel uit */
+  setTimeout(() => {
+    bus.style.transform = 'scale(1.15)';
+  }, 1000);
+
+  /* Na 2 s vervaagt & verdwijnt de preloader */
   setTimeout(() => {
     preloader.classList.add('preloader-hidden');
   }, 2000);
 });
 
-/* ─────────── JE BESTAANDE SCRIPT ─────────── */
-/* (niets aangepast – hieronder stond al jouw oorspronkelijke code) */
+/* ─────────── BESTAANDE SCRIPT ─────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  const navbar = document.querySelector('.navbar');
-  const galleryModal   = document.getElementById('galleryModal');
+  const navbar          = document.querySelector('.navbar');
+  const galleryModal    = document.getElementById('galleryModal');
   const galleryModalImg = document.getElementById('galleryModalImg');
 
   function toggleNavbarBg () {
@@ -27,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pause: 'hover'
   });
 
+  /* Gallery modal */
   document.querySelectorAll('.gallery-item img').forEach(img => {
     img.addEventListener('click', () => {
       galleryModalImg.src = img.src;

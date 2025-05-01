@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BouwWonders | Bouw- & Interieurbouw</title>
+  <title>BouwWonders | Bouw- &amp; Interieurbouw</title>
 
   <!-- Bootstrap & icon fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,15 +17,15 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Favicon -->
-  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 
-
-  <div id="preloader" class="preloader d-flex justify-content-center align-items-center">
+  <!-- ─────────── PRELOADER ─────────── -->
+  <div id="preloader" class="preloader">
     <div class="text-center">
-      <!-- Bus-afbeelding (zet bus.png in /images) -->
+      <!-- Bus-afbeelding (zet bus3.png in /images) -->
       <img src="images/bus3.png" alt="BouwWonders bus" class="preloader-bus mb-4">
       <!-- Laadbalk -->
       <div class="progress mx-auto" style="height:8px; max-width:280px; width:80%;">
@@ -35,6 +35,7 @@
       </div>
     </div>
   </div>
+
   <!-- ─────────────────── NAVBAR ─────────────────── -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
     <div class="container">
@@ -52,14 +53,13 @@
       </div>
     </div>
   </nav>
-  
 
   <!-- ─────────────────── HERO ─────────────────── -->
   <header class="hero d-flex align-items-center" id="home">
     <img src="images/hero.jpg" alt="Hero afbeelding" class="hero-image">
     <div class="overlay"></div>
     <div class="container text-center text-white hero-content">
-      <h1 class="display-4 fw-bold">Vakmanschap dat je ziet & voelt</h1>
+      <h1 class="display-4 fw-bold">Vakmanschap dat je ziet &amp; voelt</h1>
       <p class="lead">Handgemaakte houten creaties voor elke ruimte</p>
       <a href="#project" class="btn btn-primary btn-lg mt-3">Onze aanpak</a>
     </div>
@@ -102,7 +102,7 @@
             <li class="mb-4">
               <i class="bi bi-check-circle-fill text-primary me-2"></i>
               <span class="fw-semibold">Vak specialisatie</span><br>
-              <small class="text-muted">Handymanservice tot volledige renovaties; wij schakelen de juiste specialisten in.</small>
+              <small class="text-muted">Stucadors tot volledige renovaties; wij schakelen de juiste specialisten in.</small>
             </li>
             <li class="mb-4">
               <i class="bi bi-check-circle-fill text-primary me-2"></i>
@@ -223,35 +223,28 @@
 
   <!-- ─────────── FLOATING CONTACT BUTTONS ─────────── -->
   <div class="floating-buttons">
-    
-    <a href="https://wa.me/31702230706"
-      class="fab fab-whatsapp"
-      aria-label="WhatsApp ons" target="_blank" rel="noopener">
+    <a href="https://wa.me/31702230706" class="fab fab-whatsapp" aria-label="WhatsApp ons" target="_blank" rel="noopener">
       <i class="bi bi-whatsapp"></i>
     </a>
-
-    <a href="mailto:info@bouwwonders.nl"
-      class="fab fab-email"
-      aria-label="E-mail ons">
+    <a href="mailto:info@bouwwonders.nl" class="fab fab-email" aria-label="E-mail ons">
       <i class="bi bi-envelope-fill"></i>
     </a>
   </div>
 
-
   <!-- ─────────────────── FOOTER ─────────────────── -->
   <footer class="py-4 text-center text-white footer">
     <div class="container">
-      <small>&copy; <span id="year"></span> BouwWonders. Alle rechten voorbehouden. | Webdesign door <a href="https://davidcoffa.nl" class="text-white text-decoration-underline" target="_blank">DavidCoffa.nl</a></small>
+      <small>&copy; <span id="year"></span> BouwWonders. Alle rechten voorbehouden. | Webdesign door
+        <a href="https://davidcoffa.nl" class="text-white text-decoration-underline" target="_blank">DavidCoffa.nl</a></small>
     </div>
   </footer>
-  
 
-  <!-- Year script -->
+  <!-- Year-script -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
   <!-- Bootstrap bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- (optioneel) eigen script -->
+  <!-- Eigen script -->
   <script src="script.js"></script>
 </body>
 </html>
