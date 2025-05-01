@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BouwWonders&nbsp;| Bouw- &amp; Interieurbouw</title>
+  <title>BouwWonders | Bouw- & Interieurbouw</title>
 
+  <!-- Bootstrap & icon fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
+  <!-- Google-font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Eigen stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+  <!-- ─────────────────── NAVBAR ─────────────────── -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">BouwWonders</a>
@@ -23,7 +30,7 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#over">Over&nbsp;ons</a></li>
+          <li class="nav-item"><a class="nav-link" href="#over">Over ons</a></li>
           <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
           <li class="nav-item"><a class="nav-link" href="#galerij">Galerij</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -32,45 +39,65 @@
     </div>
   </nav>
 
+  <!-- ─────────────────── HERO ─────────────────── -->
   <header class="hero d-flex align-items-center" id="home">
     <img src="images/hero.jpg" alt="Hero afbeelding" class="hero-image">
     <div class="overlay"></div>
     <div class="container text-center text-white hero-content">
-      <h1 class="display-4 fw-bold">Vakmanschap dat je ziet&nbsp;&amp;&nbsp;voelt</h1>
+      <h1 class="display-4 fw-bold">Vakmanschap dat je ziet & voelt</h1>
       <p class="lead">Handgemaakte houten creaties voor elke ruimte</p>
-      <a href="#project" class="btn btn-primary btn-lg mt-3">Onze&nbsp;aanpak</a>
+      <a href="#project" class="btn btn-primary btn-lg mt-3">Onze aanpak</a>
     </div>
   </header>
 
+  <!-- ─────────────────── OVER ONS ─────────────────── -->
   <section id="over" class="py-5">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <img src="images/about.jpg" alt="BouwWonders team" class="img-fluid rounded-4 shadow">
+        <!-- AFBEELDING -->
+        <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+          <div class="project-image-wrapper rounded-4 shadow">
+            <img src="images/about.jpg" alt="BouwWonders team" class="img-fluid rounded-4">
+          </div>
         </div>
+        <!-- TEKST -->
         <div class="col-lg-6">
-          <h2 class="fw-bold text-primary mb-3">Over&nbsp;ons</h2>
-          <p>BouwWonders is ontstaan uit twee bedrijfseigenaren die na een lange en fijne samenwerking een nieuw bedrijf hebben opgericht genaamd <strong>BouwWonders</strong>.</p>
-          <blockquote class="blockquote fst-italic fw-semibold">
-            <p class="mb-0">“Wij hebben allebei een achtergrond in de bouw en interieurbouw, dat is waar onze connecties vandaan komen. Hierdoor weten we met wie we samenwerken en kunnen we ook grote projecten aanpakken. Bouwprojecten uitvoeren is iets wat we doen met precisie en vertrouwen”</p>
+          <h2 class="fw-bold text-primary mb-3">Over ons</h2>
+          <p>BouwWonders is ontstaan uit twee bedrijfseigenaren die na een lange samenwerking een nieuw bedrijf hebben opgericht genaamd <strong>BouwWonders</strong>.</p>
+          <blockquote class="blockquote fst-italic fw-semibold mb-0">
+            “Wij hebben allebei een achtergrond in de bouw en interieurbouw, dat is waar onze connecties vandaan komen. Hierdoor weten we met wie we samenwerken en kunnen we ook grote projecten aanpakken. Bouwprojecten uitvoeren is iets wat we doen met precisie en vertrouwen”
           </blockquote>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ─────────────────── PROJECT ─────────────────── -->
   <section id="project" class="py-5 bg-light">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
           <h2 class="fw-bold text-primary mb-4">Bouw project laten uitvoeren?</h2>
           <ul class="list-unstyled fs-5">
-            <li class="mb-4"><i class="bi bi-check-circle-fill text-primary me-2"></i><span class="fw-semibold">Oog voor detail</span><br><small class="text-muted">Van het eerste idee tot de laatste afwerking – elk detail klopt.</small></li>
-            <li class="mb-4"><i class="bi bi-check-circle-fill text-primary me-2"></i><span class="fw-semibold">Vak specialisatie</span><br><small class="text-muted">Handymanservice tot volledige renovaties; wij schakelen de juiste specialisten in voor een professioneel resultaat.</small></li>
-            <li class="mb-4"><i class="bi bi-check-circle-fill text-primary me-2"></i><span class="fw-semibold">Duidelijke communicatie</span><br><small class="text-muted">Eén vast aanspreekpunt voor snelle en heldere communicatie.</small></li>
+            <li class="mb-4">
+              <i class="bi bi-check-circle-fill text-primary me-2"></i>
+              <span class="fw-semibold">Oog voor detail</span><br>
+              <small class="text-muted">Van het eerste idee tot de laatste afwerking – elk detail klopt.</small>
+            </li>
+            <li class="mb-4">
+              <i class="bi bi-check-circle-fill text-primary me-2"></i>
+              <span class="fw-semibold">Vak specialisatie</span><br>
+              <small class="text-muted">Handymanservice tot volledige renovaties; wij schakelen de juiste specialisten in.</small>
+            </li>
+            <li class="mb-4">
+              <i class="bi bi-check-circle-fill text-primary me-2"></i>
+              <span class="fw-semibold">Duidelijke communicatie</span><br>
+              <small class="text-muted">Eén vast aanspreekpunt voor snelle en heldere communicatie.</small>
+            </li>
           </ul>
-          <a href="#contact" class="btn btn-primary mt-2">Vrijblijvende&nbsp;offerte</a>
+          <a href="#contact" class="btn btn-primary mt-2">Vrijblijvende offerte</a>
         </div>
+
         <div class="col-lg-6 text-center">
           <div class="project-image-wrapper rounded-4 shadow">
             <img src="images/gallery5.jpg" class="img-fluid rounded-4" alt="Voorbeeld interieurproject">
@@ -80,12 +107,13 @@
 
       <div class="row mt-5">
         <div class="col text-center">
-          <h3 class="fw-bold">Jonge ondernemers met een passie voor&nbsp;<span class="text-primary">vakmanschap</span></h3>
+          <h3 class="fw-bold">Jonge ondernemers met een passie voor <span class="text-primary">vakmanschap</span></h3>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ─────────────────── GALERIJ ─────────────────── -->
   <section id="galerij" class="py-5">
     <div class="container">
       <h2 class="text-center fw-bold text-primary mb-5">Projecten in beeld</h2>
@@ -100,42 +128,41 @@
     </div>
   </section>
 
+  <!-- ─────────────────── TESTIMONIALS ─────────────────── -->
   <section class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center fw-bold text-primary mb-5">Wat klanten zeggen</h2>
 
       <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+          <!-- Item 1 -->
           <div class="carousel-item active">
             <div class="testimonial p-4 rounded-4 shadow-sm bg-white mx-auto" style="max-width:650px">
               <p class="fs-4 fst-italic mb-4">“Een meesterwerk! Het resultaat is het pronkstuk van onze woonkamer.”</p>
-              <h6 class="fw-bold m-0">Lisa&nbsp;van&nbsp;Dijk</h6>
+              <h6 class="fw-bold m-0">Lisa van Dijk</h6>
             </div>
           </div>
-
+          <!-- Item 2 -->
           <div class="carousel-item">
             <div class="testimonial p-4 rounded-4 shadow-sm bg-white mx-auto" style="max-width:650px">
               <p class="fs-4 fst-italic mb-4">“Professioneel, vriendelijk en een resultaat boven verwachting.”</p>
-              <h6 class="fw-bold m-0">Mark&nbsp;Jansen</h6>
+              <h6 class="fw-bold m-0">Mark Jansen</h6>
             </div>
           </div>
-
+          <!-- Item 3 -->
           <div class="carousel-item">
             <div class="testimonial p-4 rounded-4 shadow-sm bg-white mx-auto" style="max-width:650px">
               <p class="fs-4 fst-italic mb-4">“Ik geniet elke dag van mijn unieke bureau. Dankjewel BouwWonders!”</p>
-              <h6 class="fw-bold m-0">Sophie&nbsp;Dekker</h6>
+              <h6 class="fw-bold m-0">Sophie Dekker</h6>
             </div>
           </div>
         </div>
 
-        <button class="carousel-control-prev" type="button"
-                data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Vorige</span>
         </button>
-
-        <button class="carousel-control-next" type="button"
-                data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Volgende</span>
         </button>
@@ -143,6 +170,7 @@
     </div>
   </section>
 
+  <!-- ─────────────────── CONTACT ─────────────────── -->
   <section id="contact" class="py-5 text-white contact-section">
     <img src="images/contact.jpg" alt="Contact achtergrond" class="contact-image">
     <div class="overlay"></div>
@@ -152,9 +180,9 @@
         <div class="col-lg-6 mb-4 mb-lg-0">
           <h2 class="fw-bold mb-3">Neem contact op</h2>
           <p class="mb-4">Wil je meer weten of een maatwerkofferte? Bel, mail of vul het formulier in.</p>
-          <p class="fs-5"><i class="bi bi-telephone-fill me-2"></i><a href="tel:+31702230706" class="text-white text-decoration-none">070&nbsp;–&nbsp;223&nbsp;07&nbsp;06</a></p>
-          <p class="fs-5"><i class="bi bi-envelope-fill me-2"></i><a href="mailto:info@bouwwonders.nl" class="text-white text-decoration-none">info@bouwwonders.nl</a></p>
-          <p class="fs-5"><i class="bi bi-geo-alt-fill me-2"></i>Seinpoststraat&nbsp;18,&nbsp;2586&nbsp;HA&nbsp;Den&nbsp;Haag</p>
+          <p class="fs-6"><i class="bi bi-telephone-fill me-2"></i><a href="tel:+31702230706" class="text-white text-decoration-none">070 – 223 07 06</a></p>
+          <p class="fs-6"><i class="bi bi-envelope-fill me-2"></i><a href="mailto:info@bouwwonders.nl" class="text-white text-decoration-none">info@bouwwonders.nl</a></p>
+          <p class="fs-6"><i class="bi bi-geo-alt-fill me-2"></i>Seinpoststraat 18, 2586 HA Den Haag</p>
         </div>
 
         <div class="col-lg-6">
@@ -178,43 +206,37 @@
     </div>
   </section>
 
+  <!-- ─────────── FLOATING CONTACT BUTTONS ─────────── -->
+  <div class="floating-buttons">
+    
+    <a href="https://wa.me/31702230706"
+      class="fab fab-whatsapp"
+      aria-label="WhatsApp ons" target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <a href="mailto:info@bouwwonders.nl"
+      class="fab fab-email"
+      aria-label="E-mail ons">
+      <i class="bi bi-envelope-fill"></i>
+    </a>
+  </div>
+
+
+  <!-- ─────────────────── FOOTER ─────────────────── -->
   <footer class="py-4 text-center text-white footer">
-    <div class="container"><small>&copy; <span id="year"></span> BouwWonders. Alle rechten voorbehouden.</small></div>
+    <div class="container">
+      <small>&copy; <span id="year"></span> BouwWonders. Alle rechten voorbehouden. | Webdesign door <a href="https://davidcoffa.nl" class="text-white text-decoration-underline" target="_blank">DavidCoffa.nl</a></small>
+    </div>
   </footer>
+  
 
-  <div class="modal fade" id="offerteModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0">
-        <div class="modal-header">
-          <h5 class="modal-title">Vrijblijvende offerte</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <div class="modal-body">
-          <p class="mb-4">Laat je gegevens achter en wij nemen binnen één werkdag contact op.</p>
-          <form id="modalForm">
-            <div class="mb-3"><label class="form-label">Naam</label><input type="text" class="form-control" required></div>
-            <div class="mb-3"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
-            <div class="mb-3"><label class="form-label">Telefoon</label><input type="tel" class="form-control" required></div>
-            <button type="submit" class="btn btn-primary w-100">Ontvang offerte</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content bg-transparent border-0 position-relative">
-        <button type="button" class="btn-close btn-close-white position-absolute end-0 mt-3 me-3"
-                data-bs-dismiss="modal"></button>
-        <img src="" id="galleryModalImg" class="img-fluid rounded-4" alt="">
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <!-- Year script -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- (optioneel) eigen script -->
+  <script src="script.js"></script>
 </body>
 </html>
