@@ -201,3 +201,53 @@ body       { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
   #testimonialCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
   #testimonialCarousel .carousel-control-next:hover .carousel-control-next-icon { transform: none; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Instagram embed ===== */
+.insta-wrapper{
+  position:relative;
+  overflow:hidden;
+  border-radius:1rem;
+  background:#fff;
+  transition:transform .35s, box-shadow .35s;
+  margin-inline:auto;         /* centreert in de container */
+  max-height: 43.75rem;
+  margin-top: 3.125rem;
+}
+
+.insta-wrapper iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:1 / 1;         /* maakt ’m automatisch vierkant */
+  border:0;
+}
+
+/* ===== Mobiel tweaks (≤ 575 px) ===== */
+@media (max-width:575.98px){
+  /* iets meer “story‑” verhouding; oogt rustiger */
+  .insta-wrapper iframe{ aspect-ratio:4 / 5; }
+
+  .insta-wrapper { max-height: 21.875rem;}
+
+  /* haal de extra witruimte onder de galerij weg */
+  #galerij{ margin-bottom:1.5rem; }
+
+  /* minder top‑padding bij de testimonials */
+  section.py-5.bg-light{ padding-top:2rem!important; }
+}
