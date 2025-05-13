@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BouwWonders | Stukadoor rekentool</title>
+
+  <!-- Bootstrap & icon fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Google‑fonts & eigen css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <!-- extra style voor teller -->
+  <style>
+    #tellerBar{
+      position:sticky;
+      bottom:0;
+      left:0;
+      width:100%;
+      z-index:1030;
+      background:#0d6efd;
+      color:#fff;
+      padding:.75rem 1rem;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:600;
+      box-shadow:0 -2px 6px rgba(0,0,0,.2);
+    }
+    @media (max-width:575.98px){
+      #tellerBar{font-size:.9rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────────────── NAVBAR ─────────────────── -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">
+        <a class="navbar-brand fw-bold" href="#">BouwWonders</a>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/#over">Over ons</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#project">Project</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/stukadoor">Stukadoor</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#galerij">Galerij</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─────────── HERO ─────────── -->
+  <header class="hero d-flex align-items-center" style="min-height:65vh">
+    <img src="/images/hero.jpg" alt="Hero afbeelding" class="hero-image">
+    <div class="overlay"></div>
+    <div class="container text-center text-white hero-content">
+      <h1 class="display-5 fw-bold">Stucwerk rekentool</h1>
+      <p class="lead">Bereken direct een richtprijs voor uw stucwerk</p>
+      <a href="#rekentool" class="btn btn-primary btn-lg mt-3">Start berekening</a>
+    </div>
+  </header>
+
+  <!-- ────────── REKENTOOL ────────── -->
+  <section id="rekentool" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="fw-bold text-primary text-center mb-5">Wat kost mijn stucwerk?</h2>
+
+      <form id="stucForm" class="bg-white rounded-4 shadow p-4">
+        <!-- Type stucwerk -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">1. Type stucwerk <span class="text-danger">*</span></label>
+          <div class="row g-2">
+            <div class="col-6 col-lg-3">
+              <input class="btn-check" type="checkbox" name="type" id="sausklaar" value="sausklaar">
+              <label class="btn btn-outline-primary w-100" for="sausklaar">Sausklaar<br><small class="text-muted">vanaf €21,95 p/m²</small></label>
+            </div>
+            <div class="col-6 col-lg-3">
+              <input class="btn-check" type="checkbox" name="type" id="behangklaar" value="behangklaar">
+              <label class="btn btn-outline-primary w-100" for="behangklaar">Behangklaar<br><small class="text-muted">vanaf €19,90 p/m²</small></label>
+            </div>
+            <div class="col-6 col-lg-3">
+              <input class="btn-check" type="checkbox" name="type" id="tegelklaar" value="tegelklaar">
+              <label class="btn btn-outline-primary w-100" for="tegelklaar">Tegelklaar<br><small class="text-muted">vanaf €28,95 p/m²</small></label>
+            </div>
+            <div class="col-6 col-lg-3">
+              <input class="btn-check" type="checkbox" name="type" id="buiten" value="buiten">
+              <label class="btn btn-outline-primary w-100" for="buiten">Buitenwerk<br><small class="text-muted">vanaf €63,95 p/m²</small></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ondergrond -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">2. Huidige ondergrond</label>
+          <select id="ondergrond" class="form-select" multiple>
+            <option value="bestaand">Bestaand stucwerk</option>
+            <option value="baksteen">Baksteen / metselwerk (+€1,50 p/m²)</option>
+            <option value="beton">Beton</option>
+            <option value="gips">Gipsplaten</option>
+            <option value="anders">Anders / onbekend</option>
+          </select>
+        </div>
+
+        <!-- Ruimte -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">3. Ruimte</label>
+          <select id="ruimte" class="form-select" multiple>
+            <option>Woonkamer</option><option>Slaapkamer</option><option>Keuken</option>
+            <option>Badkamer / natte ruimte</option><option>Trapgat / vide</option><option>Plafond</option>
+          </select>
+        </div>
+
+        <!-- Oppervlakte -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">4. Oppervlakte <span class="text-danger">*</span></label>
+          <div class="d-flex gap-2 flex-wrap">
+            <input class="btn-check" type="radio" name="m2" id="m2_0_20" value="0-20" required>
+            <label class="btn btn-outline-primary" for="m2_0_20">0–20 m²</label>
+
+            <input class="btn-check" type="radio" name="m2" id="m2_21_50" value="21-50">
+            <label class="btn btn-outline-primary" for="m2_21_50">21–50 m²</label>
+
+            <input class="btn-check" type="radio" name="m2" id="m2_51_100" value="51-100">
+            <label class="btn btn-outline-primary" for="m2_51_100">51–100 m²</label>
+
+            <input class="btn-check" type="radio" name="m2" id="m2_100" value="100+">
+            <label class="btn btn-outline-primary" for="m2_100">>100 m²</label>
+          </div>
+        </div>
+
+        <!-- Afwerking -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">5. Gewenste afwerking</label>
+          <select id="afwerking" class="form-select" multiple>
+            <option>Glad en schilder‑klaar</option>
+            <option>Buiten stucwerk</option>
+            <option>Klaar om te behangen</option>
+            <option>Waterdicht (bijv. badkamer)</option>
+          </select>
+        </div>
+
+        <!-- Planning -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">6. Gewenste planning</label>
+          <select id="planning" class="form-select">
+            <option selected>Zo snel mogelijk</option>
+            <option>Binnen 1 maand</option>
+            <option>Binnen 3 maanden</option>
+            <option>Geen haast</option>
+          </select>
+        </div>
+
+        <!-- Extra wensen -->
+        <div class="mb-4">
+          <label class="fw-semibold form-label mb-2">7. Extra werkzaamheden</label>
+          <div class="row g-2">
+            <div class="col-6 col-lg-4">
+              <input class="btn-check" type="checkbox" id="extra_verwijderen" value="Verwijderen oud stucwerk">
+              <label class="btn btn-outline-secondary w-100" for="extra_verwijderen">Verwijderen oud stucwerk</label>
+            </div>
+            <div class="col-6 col-lg-4 position-relative">
+              <input class="btn-check" type="checkbox" id="extra_hoekprofielen" value="Hoekprofielen plaatsen">
+              <label class="btn btn-outline-secondary w-100" for="extra_hoekprofielen">Hoekprofielen plaatsen</label>
+              <div class="position-absolute d-none d-lg-block" style="top:-250px;right:-20px;width:250px;">
+                <!-- <img src="/images/stukadoor_1.png" class="img-fluid border rounded-3 shadow" alt="Hoekprofielen voorbeeld"> -->
+              </div>
+            </div>
+            <div class="col-6 col-lg-4">
+              <input class="btn-check" type="checkbox" id="extra_afplakken" value="Afplakken / afdekken">
+              <label class="btn btn-outline-secondary w-100" for="extra_afplakken">Afplakken / afdekken</label>
+            </div>
+            <div class="col-6 col-lg-4">
+              <input class="btn-check" type="checkbox" id="extra_isoleren" value="Isoleren voorzetwanden">
+              <label class="btn btn-outline-secondary w-100" for="extra_isoleren">Isoleren voorzetwanden</label>
+            </div>
+            <div class="col-6 col-lg-4">
+              <input class="btn-check" type="checkbox" id="extra_tegelen" value="Tegelen">
+              <label class="btn btn-outline-secondary w-100" for="extra_tegelen">Tegelen</label>
+            </div>
+            <div class="col-6 col-lg-4">
+              <input class="btn-check" type="checkbox" id="extra_saus" value="Sausen / spuiten">
+              <label class="btn btn-outline-secondary w-100" for="extra_saus">Sausen / spuiten</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gegevens -->
+        <h5 class="fw-bold mt-4">Uw gegevens</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Naam *</label>
+            <input class="form-control" name="naam" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Telefoon *</label>
+            <input type="tel" class="form-control" name="telefoon" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">E‑mail *</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Adres</label>
+            <input class="form-control" name="adres">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Foto toevoegen (optioneel)</label>
+            <input type="file" class="form-control" name="foto" accept="image/*">
+          </div>
+        </div>
+
+        <!-- Resultaat & CTA -->
+        <div id="resultaat" class="alert alert-info d-none mt-4"></div>
+        <button class="btn btn-primary w-100 mt-4" type="submit">Ontvang prijsindicatie &amp; verstuur e‑mail</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- teller bar -->
+  <div id="tellerBar" class="d-none">
+    Huidige prijsindicatie: <span id="tellerBedrag" class="ms-2">—</span>
+  </div>
+
+  <!-- ─────────── FOOTER ─────────── -->
+  <footer class="py-4 text-center text-white footer">
+    <div class="container">
+      <small>&copy; <span id="jaar"></span> BouwWonders. Alle rechten voorbehouden. |
+        Webdesign door <a href="https://davidcoffa.nl" class="text-white text-decoration-underline" target="_blank" rel="noopener">DavidCoffa.nl</a>
+      </small>
+    </div>
+  </footer>
+
+  <!-- ─────────── SCRIPTS ─────────── -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/script.js" defer></script>
+
+  <script>
+    document.getElementById('jaar').textContent = new Date().getFullYear();
+
+    /* ---------- config ---------- */
+    const PRIJZEN = {
+      sausklaar:  { base: 21.95, "0-20": 23.95, "21-50": 23.50, "51-100": 23.05 },
+      behangklaar:{ base: 19.90, "0-20": 21.00, "21-50": 20.55, "51-100": 20.10 },
+      tegelklaar: { base: 28.95 },
+      buiten:     { base: 63.95, "0-20": 65.00, "21-50": 64.55, "51-100": 64.10 }
+    };
+    const EXTRA_TOESLAG = { baksteen: 1.50 };
+    const RANGE_M2 = { "0-20":15, "21-50":35, "51-100":75, "100+":120 };
+
+    /* ---------- helpers ---------- */
+    function getSelected(el){return Array.from(el.selectedOptions||[]).map(o=>o.value);}
+    function format(num){return num.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+    /* ---------- realtime teller ---------- */
+    const tellerBar = document.getElementById('tellerBar');
+    const tellerBedrag = document.getElementById('tellerBedrag');
+    const form = document.getElementById('stucForm');
+
+    form.addEventListener('input', updateTeller);
+    form.addEventListener('change', updateTeller);
+
+    function updateTeller(){
+      const fd      = new FormData(form);
+      const types   = fd.getAll('type');
+      const m2Range = fd.get('m2');
+
+      // noodzakelijke gegevens: minimaal 1 type + m2
+      if(!types.length || !m2Range){
+        tellerBedrag.textContent = '—';
+        tellerBar.classList.add('d-none');
+        return;
+      }
+
+      const prijsPerM2 = types.reduce((sum,t)=>sum+(PRIJZEN[t][m2Range]??PRIJZEN[t].base),0)/types.length;
+      let toeslag = 0;
+      if(getSelected(document.getElementById('ondergrond')).includes('baksteen')) toeslag+=EXTRA_TOESLAG.baksteen;
+
+      const total = (prijsPerM2+toeslag)*RANGE_M2[m2Range];
+
+      tellerBedrag.textContent = `€${format(total)}`;
+      tellerBar.classList.remove('d-none');
+    }
+
+    /* ---------- submit ---------- */
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+
+      const fd      = new FormData(form);
+      const types   = fd.getAll('type');
+      const m2Range = fd.get('m2');
+      if(!types.length){alert('Selecteer minimaal één type stucwerk.');return;}
+      if(!m2Range){alert('Selecteer het aantal m².');return;}
+
+      const prijsPerM2 = types.reduce((sum,t)=>sum+(PRIJZEN[t][m2Range]??PRIJZEN[t].base),0)/types.length;
+      let toeslag = 0;
+      const ondergronden = getSelected(document.getElementById('ondergrond'));
+      if(ondergronden.includes('baksteen')) toeslag += EXTRA_TOESLAG.baksteen;
+
+      const m2   = RANGE_M2[m2Range];
+      const totaal = ((prijsPerM2+toeslag)*m2).toFixed(2);
+
+      const res = document.getElementById('resultaat');
+      res.innerHTML = `<strong>Indicatie:</strong> €${totaal} voor ±${m2} m² (${(prijsPerM2+toeslag).toFixed(2)} p/m²).<br><u>Let op:</u> exacte prijs na vrijblijvende opname.`;
+      res.classList.remove('d-none');
+      res.scrollIntoView({behavior:'smooth'});
+
+      /* --------- e‑mail --------- */
+      const naam      = fd.get('naam')      || '';
+      const tel       = fd.get('telefoon')  || '';
+      const email     = fd.get('email')     || '';
+      const adres     = fd.get('adres')     || '';
+      const planning  = fd.get('planning')  || '';
+      const afwerkingen = getSelected(document.getElementById('afwerking')).join(', ')||'n.v.t.';
+      const extras = ['extra_verwijderen','extra_hoekprofielen','extra_afplakken','extra_isoleren','extra_tegelen','extra_saus']
+                     .filter(id=>document.getElementById(id).checked)
+                     .map(id=>document.querySelector(`label[for="${id}"]`).textContent.trim())
+                     .join(', ')||'geen';
+
+      const subject   = encodeURIComponent('Aanvraag stucwerk rekentool');
+      const bodyLines = [
+        `Naam: ${naam}`,
+        `Telefoon: ${tel}`,
+        `E‑mail: ${email}`,
+        `Adres: ${adres}`,
+        `---`,
+        `Gekozen type(n): ${types.join(', ')}`,
+        `Ondergrond(en): ${ondergronden.join(', ')||'n.v.t.'}`,
+        `Ruimte(n): ${getSelected(document.getElementById('ruimte')).join(', ')||'n.v.t.'}`,
+        `Afwerking(en): ${afwerkingen}`,
+        `Extra werkzaamheden: ${extras}`,
+        `Oppervlakte-range: ${m2Range} (${m2} m² aangehouden)`,
+        `Gewenste planning: ${planning}`,
+        `Indicatieve prijs: €${totaal}`,
+        ``,
+        `Opmerking: exacte prijs volgt na vrijblijvende opname.`
+      ];
+      window.location.href = `mailto:info@bouwwonders.nl?subject=${subject}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+      form.reset();
+      updateTeller();          // teller leegmaken
+    });
+
+    // initial teller hide
+    updateTeller();
+  </script>
+</body>
+</html>
