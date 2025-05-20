@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway      # of 'github' als je GitHub-token wilt gebruiken
+  branch: master         # of 'main' als jouw branch zo heet
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pagina's"
+    files:
+
+      # ────────────── HOMEPAGE ──────────────
+      - name: "homepage"
+        label: "Homepage"
+        file: "data/homepage.json"
+        format: "json"
+        fields:
+          - { label: "Hero titel",             name: "hero_title",       widget: "string" }
+          - { label: "Hero subtitel",          name: "hero_subtitle",    widget: "string" }
+          - { label: "Hero knop-tekst",        name: "hero_button",      widget: "string" }
+          - { label: "Hero afbeelding",        name: "hero_image",       widget: "image"  }
+
+          - { label: "Over-ons titel",         name: "about_heading",    widget: "string" }
+          - { label: "Over-ons tekst",         name: "about_text",       widget: "text"   }
+          - { label: "Over-ons quote",         name: "about_quote",      widget: "text"   }
+          - { label: "Over-ons afbeelding",    name: "about_image",      widget: "image"  }
+
+          - { label: "Project sectie titel",   name: "project_heading",  widget: "string" }
+          - label: "Project bullets"
+            name: "project_bullets"
+            widget: list
+            fields:
+              - { label: "Titel",       name: "title",       widget: "string" }
+              - { label: "Beschrijving",name: "description", widget: "string" }
+          - { label: "Project knop-tekst",     name: "project_cta",      widget: "string" }
+          - { label: "Project afbeelding",     name: "project_image",    widget: "image"  }
+          - { label: "Project tagline",        name: "project_tagline",  widget: "string" }

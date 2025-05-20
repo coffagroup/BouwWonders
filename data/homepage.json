@@ -1,0 +1,21 @@
+{
+  "hero_title": "Vakmanschap dat je ziet & voelt",
+  "hero_subtitle": "Handgemaakte houten creaties voor elke ruimte",
+  "hero_button": "Onze aanpak",
+  "hero_image": "images/hero.jpg",
+
+  "about_heading": "Over ons",
+  "about_text": "BouwWonders is ontstaan uit twee bedrijfseigenaren die na een lange samenwerking een nieuw bedrijf hebben opgericht genaamd BouwWonders.",
+  "about_quote": "Wij hebben allebei een achtergrond in de bouw en interieurbouw; hierdoor weten we met wie we samenwerken en kunnen we ook grote projecten aanpakken.",
+  "about_image": "images/about.jpg",
+
+  "project_heading": "Bouw project laten uitvoeren?",
+  "project_bullets": [
+    { "title": "Oog voor detail",     "description": "Van het eerste idee tot de laatste afwerking – elk detail klopt." },
+    { "title": "Vak specialisatie",   "description": "Stucadors tot volledige renovaties; wij schakelen de juiste specialisten in." },
+    { "title": "Duidelijke communicatie", "description": "Eén vast aanspreekpunt voor snelle en heldere communicatie." }
+  ],
+  "project_cta": "Vrijblijvende offerte",
+  "project_image": "images/gallery5.jpg",
+  "project_tagline": "Jonge ondernemers met een passie voor vakmanschap"
+}

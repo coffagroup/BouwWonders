@@ -62,79 +62,120 @@
 
   
 
-  <!-- ─────────────────── HERO ─────────────────── -->
-  <header class="hero d-flex align-items-center" id="home">
-    <img src="images/hero.jpg" alt="Hero afbeelding" class="hero-image">
-    <div class="overlay"></div>
-    <div class="container text-center text-white hero-content">
-      <h1 class="display-4 fw-bold">Vakmanschap dat je ziet &amp; voelt</h1>
-      <p class="lead">Handgemaakte houten creaties voor elke ruimte</p>
-      <a href="#project" class="btn btn-primary btn-lg mt-3">Onze aanpak</a>
-    </div>
-  </header>
+<!-- ─────────── HERO ─────────── -->
+<header class="hero d-flex align-items-center" id="home">
+  <!-- alleen id toegevoegd -->
+  <img id="heroImage" src="images/hero.jpg" alt="Hero afbeelding" class="hero-image">
+  <div class="overlay"></div>
+  <div class="container text-center text-white hero-content">
+    <h1 id="heroTitle" class="display-4 fw-bold">
+      Vakmanschap dat je ziet &amp; voelt
+    </h1>
+    <p  id="heroSubtitle" class="lead">
+      Handgemaakte houten creaties voor elke ruimte
+    </p>
+    <a id="heroButton" href="#project" class="btn btn-primary btn-lg mt-3">
+      Onze aanpak
+    </a>
+  </div>
+</header>
 
-  <!-- ─────────────────── OVER ONS ─────────────────── -->
-  <section id="over" class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- AFBEELDING -->
-        <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-          <div class="project-image-wrapper rounded-4 shadow">
-            <img src="images/about.jpg" alt="BouwWonders team" class="img-fluid rounded-4">
-          </div>
-        </div>
-        <!-- TEKST -->
-        <div class="col-lg-6">
-          <h2 class="fw-bold text-primary mb-3">Over ons</h2>
-          <p>BouwWonders is ontstaan uit twee bedrijfseigenaren die na een lange samenwerking een nieuw bedrijf hebben opgericht genaamd <strong>BouwWonders</strong>.</p>
-          <blockquote class="blockquote fst-italic fw-semibold mb-0">
-            “Wij hebben allebei een achtergrond in de bouw en interieurbouw, dat is waar onze connecties vandaan komen. Hierdoor weten we met wie we samenwerken en kunnen we ook grote projecten aanpakken. Bouwprojecten uitvoeren is iets wat we doen met precisie en vertrouwen”
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────────── PROJECT ─────────────────── -->
-  <section id="project" class="py-5 bg-light">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <h2 class="fw-bold text-primary mb-4">Bouw project laten uitvoeren?</h2>
-          <ul class="list-unstyled fs-5">
-            <li class="mb-4">
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>
-              <span class="fw-semibold">Oog voor detail</span><br>
-              <small class="text-muted">Van het eerste idee tot de laatste afwerking – elk detail klopt.</small>
-            </li>
-            <li class="mb-4">
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>
-              <span class="fw-semibold">Vak specialisatie</span><br>
-              <small class="text-muted">Stucadors tot volledige renovaties; wij schakelen de juiste specialisten in.</small>
-            </li>
-            <li class="mb-4">
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>
-              <span class="fw-semibold">Duidelijke communicatie</span><br>
-              <small class="text-muted">Eén vast aanspreekpunt voor snelle en heldere communicatie.</small>
-            </li>
-          </ul>
-          <a href="#contact" class="btn btn-primary mt-2">Vrijblijvende offerte</a>
-        </div>
-
-        <div class="col-lg-6 text-center">
-          <div class="project-image-wrapper rounded-4 shadow">
-            <img src="images/gallery5.jpg" class="img-fluid rounded-4" alt="Voorbeeld interieurproject">
-          </div>
+<!-- ─────────── OVER ONS ─────────── -->
+<section id="over" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+        <div class="project-image-wrapper rounded-4 shadow">
+          <img id="aboutImage"
+               src="images/about.jpg"
+               alt="BouwWonders team"
+               class="img-fluid rounded-4">
         </div>
       </div>
 
-      <div class="row mt-5">
-        <div class="col text-center">
-          <h3 class="fw-bold">Jonge ondernemers met een passie voor <span class="text-primary">vakmanschap</span></h3>
+      <div class="col-lg-6">
+        <h2 id="aboutHeading" class="fw-bold text-primary mb-3">
+          Over ons
+        </h2>
+
+        <p id="aboutText">
+          BouwWonders is ontstaan uit twee bedrijfseigenaren die na een lange
+          samenwerking een nieuw bedrijf hebben opgericht genaamd
+          <strong>BouwWonders</strong>.
+        </p>
+
+        <blockquote id="aboutQuote"
+                    class="blockquote fst-italic fw-semibold mb-0">
+          “Wij hebben allebei een achtergrond in de bouw en interieurbouw,
+          dat is waar onze connecties vandaan komen. Hierdoor weten we met wie
+          we samenwerken en kunnen we ook grote projecten aanpakken.
+          Bouwprojecten uitvoeren is iets wat we doen met precisie en vertrouwen”
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PROJECT ─────────── -->
+<section id="project" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 id="projectHeading" class="fw-bold text-primary mb-4">
+          Bouw project laten uitvoeren?
+        </h2>
+
+        <!-- UL krijgt een id; de <li>'s laat je voorlopig staan -->
+        <ul id="projectBullets" class="list-unstyled fs-5">
+          <li class="mb-4">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+            <span class="fw-semibold">Oog voor detail</span><br>
+            <small class="text-muted">
+              Van het eerste idee tot de laatste afwerking – elk detail klopt.
+            </small>
+          </li>
+          <li class="mb-4">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+            <span class="fw-semibold">Vak specialisatie</span><br>
+            <small class="text-muted">
+              Stucadors tot volledige renovaties; wij schakelen de juiste specialisten in.
+            </small>
+          </li>
+          <li class="mb-4">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+            <span class="fw-semibold">Duidelijke communicatie</span><br>
+            <small class="text-muted">
+              Eén vast aanspreekpunt voor snelle en heldere communicatie.
+            </small>
+          </li>
+        </ul>
+
+        <a id="projectCTA" href="#contact" class="btn btn-primary mt-2">
+          Vrijblijvende offerte
+        </a>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <div class="project-image-wrapper rounded-4 shadow">
+          <img id="projectImage"
+               src="images/gallery5.jpg"
+               class="img-fluid rounded-4"
+               alt="Voorbeeld interieurproject">
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="row mt-5">
+      <div class="col text-center">
+        <h3 id="projectTagline" class="fw-bold">
+          Jonge ondernemers met een passie voor
+          <span class="text-primary">vakmanschap</span>
+        </h3>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- ─────────────────── GALERIJ ─────────────────── -->
   <!-- <section id="galerij" class=""> -->
@@ -271,5 +312,43 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Eigen script -->
   <script src="script.js"></script>
+
+  <script>
+  fetch('data/homepage.json')
+    .then(r => r.json())
+    .then(c => {
+      /* ── Hero ─────────────────── */
+      document.getElementById('heroTitle'   ).textContent = c.hero_title;
+      document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
+      document.getElementById('heroButton'  ).textContent = c.hero_button;
+      document.getElementById('heroImage'   ).src         = c.hero_image;
+
+      /* ── Over ons ─────────────── */
+      document.getElementById('aboutHeading').textContent = c.about_heading;
+      document.getElementById('aboutText'   ).textContent = c.about_text;
+      document.getElementById('aboutQuote'  ).textContent = `“${c.about_quote}”`;
+      document.getElementById('aboutImage'  ).src         = c.about_image;
+
+      /* ── Project ──────────────── */
+      document.getElementById('projectHeading').textContent = c.project_heading;
+
+      const ul = document.getElementById('projectBullets');
+      ul.innerHTML = '';                       // maak leeg
+      c.project_bullets.forEach(b => {
+        ul.insertAdjacentHTML('beforeend',`
+          <li class="mb-4">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+            <span class="fw-semibold">${b.title}</span><br>
+            <small class="text-muted">${b.description}</small>
+          </li>`);
+      });
+
+      document.getElementById('projectCTA'   ).textContent = c.project_cta;
+      document.getElementById('projectImage' ).src         = c.project_image;
+      document.getElementById('projectTagline').innerHTML  = c.project_tagline
+        .replace(/vakmanschap/i,'<span class="text-primary">vakmanschap</span>');
+    });
+</script>
+
 </body>
 </html>
