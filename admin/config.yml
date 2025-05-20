@@ -1,6 +1,6 @@
 backend:
   name: git-gateway      # of 'github' als je GitHub-token wilt gebruiken
-  branch: master         # of 'main' als jouw branch zo heet
+  branch: main         # of 'main' als jouw branch zo heet
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
