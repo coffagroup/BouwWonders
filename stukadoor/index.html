@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>BouwWonders | Stukadoor rekentool</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BouwWonders | Stucwerk rekentool</title>
 
   <!-- Bootstrap & icon fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
-  <!-- Google‑fonts & eigen css -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
+  <!-- Google-fonts & eigen css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .navbar, .footer { background: #0d3b66; }
+    .btn-outline-primary.active, .btn-outline-primary:checked, .btn-outline-primary:hover { color:#fff; }
+    .hero .overlay { background: rgba(0,0,0,.55); }
+    .hero-image { filter: brightness(0.85); }
+    .form-text { font-size: .75rem; }
+    .required::after { content:" *"; color:#dc3545; }
+    /* Kleinere helper voor multiple select */
+    select[multiple] { min-height: 110px; }
+  </style>
 </head>
 <body>
-
-  <!-- ─────────────────── NAVBAR ─────────────────── -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3 shadow-sm">
     <div class="container d-flex justify-content-between">
       <a class="navbar-brand fw-bold" href="/">BouwWonders</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -28,52 +36,54 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link"                     href="/#over">Over ons</a></li>
-          <li class="nav-item"><a class="nav-link"                     href="/#project">Project</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/stukadoor/">Stukadoor</a></li>
-          <li class="nav-item"><a class="nav-link"                     href="/#galerij">Galerij</a></li>
-          <li class="nav-item"><a class="nav-link"                     href="/#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#over">Over ons</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#project">Project</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/stukadoor/">Stukadoor</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#galerij">Galerij</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ─────────── HERO ─────────── -->
-  <header class="hero d-flex align-items-center" style="min-height:65vh">
-    <img src="../images/hero.jpg" alt="Hero afbeelding" class="hero-image">
-    <div class="overlay"></div>
-    <div class="container text-center text-white hero-content">
+  <!-- HERO -->
+  <header class="hero d-flex align-items-center" style="min-height:65vh; position:relative; overflow:hidden;">
+    <img src="../images/hero.jpg" alt="Hero afbeelding" class="hero-image position-absolute top-0 start-0 w-100 h-100 object-fit-cover" />
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <div class="container text-center text-white position-relative" style="z-index:2;">
       <h1 class="display-5 fw-bold">Stucwerk rekentool</h1>
       <p class="lead">Bereken direct een richtprijs voor uw stucwerk</p>
       <a href="#rekentool" class="btn btn-primary btn-lg mt-3">Start berekening</a>
     </div>
   </header>
 
-  <!-- ────────── REKENTOOL ────────── -->
+  <!-- REKENTOOL -->
   <section id="rekentool" class="py-5 bg-light">
     <div class="container">
       <h2 class="fw-bold text-primary text-center mb-4">Wat kost mijn stucwerk?</h2>
-      <p class="alert alert-warning text-center fw-semibold">TIP! Meet de oppervlaktes op voor een accurate prijsindicatie.</p>
+      <p class="alert alert-warning text-center fw-semibold mb-4">TIP! Meet de oppervlaktes op voor een accurate prijsindicatie.</p>
 
-      <form id="stucForm" class="bg-white rounded-4 shadow p-4">
+      <form id="stucForm" class="bg-white rounded-4 shadow p-4" novalidate>
         <!-- 1. Type stucwerk -->
         <div class="mb-4">
-          <label class="fw-semibold form-label mb-2">1. Type stucwerk <span class="text-danger">*</span></label>
-          <div class="row g-2">
+          <label class="fw-semibold form-label mb-2 required">1. Type stucwerk</label>
+          <p class="small text-muted mb-2">Selecteer &eacute;&eacute;n type (standaard). Wil je meerdere? Hou Ctrl / Cmd ingedrukt in het alternatief hieronder.</p>
+          <div class="row g-2" id="typeWrapper">
+            <!-- Gebruik radio's: 1 keuze → voorkomt reken-gemiddelde verwarring -->
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="type" id="sausklaar" value="sausklaar">
+              <input class="btn-check" type="radio" name="type" id="sausklaar" value="sausklaar" required />
               <label class="btn btn-outline-primary w-100" for="sausklaar">Sausklaar<br><small class="text-muted">vanaf €21,95 p/m²</small></label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="type" id="behangklaar" value="behangklaar">
+              <input class="btn-check" type="radio" name="type" id="behangklaar" value="behangklaar" />
               <label class="btn btn-outline-primary w-100" for="behangklaar">Behangklaar<br><small class="text-muted">vanaf €19,90 p/m²</small></label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="type" id="tegelklaar" value="tegelklaar">
+              <input class="btn-check" type="radio" name="type" id="tegelklaar" value="tegelklaar" />
               <label class="btn btn-outline-primary w-100" for="tegelklaar">Tegelklaar<br><small class="text-muted">vanaf €28,95 p/m²</small></label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="type" id="buiten" value="buiten">
+              <input class="btn-check" type="radio" name="type" id="buiten" value="buiten" />
               <label class="btn btn-outline-primary w-100" for="buiten">Buitenwerk<br><small class="text-muted">vanaf €63,95 p/m²</small></label>
             </div>
           </div>
@@ -84,27 +94,27 @@
           <label class="fw-semibold form-label mb-2">2. Huidige ondergrond</label>
           <div class="row g-2">
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_bestaand" value="bestaand">
+              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_bestaand" value="bestaand" />
               <label class="btn btn-outline-secondary w-100" for="onder_bestaand">Bestaand stucwerk</label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_baksteen" value="baksteen">
+              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_baksteen" value="baksteen" />
               <label class="btn btn-outline-secondary w-100" for="onder_baksteen">Baksteen / metselwerk<br><small class="text-muted">+€2,50 p/m²*</small></label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_beton" value="beton">
+              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_beton" value="beton" />
               <label class="btn btn-outline-secondary w-100" for="onder_beton">Beton</label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_gips" value="gips">
+              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_gips" value="gipsplaten" />
               <label class="btn btn-outline-secondary w-100" for="onder_gips">Gipsplaten</label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_plafond" value="plafond">
+              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_plafond" value="plafond" />
               <label class="btn btn-outline-secondary w-100" for="onder_plafond">Plafond</label>
             </div>
             <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_anders" value="anders">
+              <input class="btn-check" type="checkbox" name="ondergrond" id="onder_anders" value="anders" />
               <label class="btn btn-outline-secondary w-100" for="onder_anders">Anders / onbekend</label>
             </div>
           </div>
@@ -115,75 +125,52 @@
         <div class="mb-4">
           <label class="fw-semibold form-label mb-2">3. Ruimte</label>
           <div class="row g-2">
-            <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ruimte" id="ruimte_woonkamer" value="Woonkamer">
-              <label class="btn btn-outline-secondary w-100" for="ruimte_woonkamer">Woonkamer</label>
-            </div>
-            <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ruimte" id="ruimte_slaapkamer" value="Slaapkamer">
-              <label class="btn btn-outline-secondary w-100" for="ruimte_slaapkamer">Slaapkamer</label>
-            </div>
-            <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ruimte" id="ruimte_keuken" value="Keuken">
-              <label class="btn btn-outline-secondary w-100" for="ruimte_keuken">Keuken</label>
-            </div>
-            <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ruimte" id="ruimte_badkamer" value="Badkamer / natte ruimte">
-              <label class="btn btn-outline-secondary w-100" for="ruimte_badkamer">Badkamer / natte ruimte</label>
-            </div>
-            <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ruimte" id="ruimte_trapgat" value="Trapgat / vide">
-              <label class="btn btn-outline-secondary w-100" for="ruimte_trapgat">Trapgat / vide</label>
-            </div>
-            <div class="col-6 col-lg-3">
-              <input class="btn-check" type="checkbox" name="ruimte" id="ruimte_buitengevel" value="Buitengevel">
-              <label class="btn btn-outline-secondary w-100" for="ruimte_buitengevel">Buitengevel</label>
-            </div>
+            <div class="col-6 col-lg-3"><input class="btn-check" type="checkbox" name="ruimte" id="r_woon" value="woonkamer" /><label class="btn btn-outline-secondary w-100" for="r_woon">Woonkamer</label></div>
+            <div class="col-6 col-lg-3"><input class="btn-check" type="checkbox" name="ruimte" id="r_slaap" value="slaapkamer" /><label class="btn btn-outline-secondary w-100" for="r_slaap">Slaapkamer</label></div>
+            <div class="col-6 col-lg-3"><input class="btn-check" type="checkbox" name="ruimte" id="r_keuken" value="keuken" /><label class="btn btn-outline-secondary w-100" for="r_keuken">Keuken</label></div>
+            <div class="col-6 col-lg-3"><input class="btn-check" type="checkbox" name="ruimte" id="r_bad" value="badkamer" /><label class="btn btn-outline-secondary w-100" for="r_bad">Badkamer / natte ruimte</label></div>
+            <div class="col-6 col-lg-3"><input class="btn-check" type="checkbox" name="ruimte" id="r_trap" value="trapgat" /><label class="btn btn-outline-secondary w-100" for="r_trap">Trapgat / vide</label></div>
+            <div class="col-6 col-lg-3"><input class="btn-check" type="checkbox" name="ruimte" id="r_buiten" value="buitengevel" /><label class="btn btn-outline-secondary w-100" for="r_buiten">Buitengevel</label></div>
           </div>
         </div>
 
         <!-- 4. Oppervlakte -->
         <div class="mb-4">
-          <label class="fw-semibold form-label mb-2">4. Oppervlakte <span class="text-danger">*</span></label>
+          <label class="fw-semibold form-label mb-2 required">4. Oppervlakte</label>
           <div class="d-flex gap-2 flex-wrap align-items-center">
-            <input class="btn-check" type="radio" name="m2_range" id="m2_0_20" value="0-20" required>
+            <input class="btn-check" type="radio" name="m2_range" id="m2_0_20" value="0-20" required />
             <label class="btn btn-outline-primary" for="m2_0_20">0–20 m²</label>
-
-            <input class="btn-check" type="radio" name="m2_range" id="m2_21_50" value="21-50">
+            <input class="btn-check" type="radio" name="m2_range" id="m2_21_50" value="21-50" />
             <label class="btn btn-outline-primary" for="m2_21_50">21–50 m²</label>
-
-            <input class="btn-check" type="radio" name="m2_range" id="m2_51_100" value="51-100">
+            <input class="btn-check" type="radio" name="m2_range" id="m2_51_100" value="51-100" />
             <label class="btn btn-outline-primary" for="m2_51_100">51–100 m²</label>
-
-            <input class="btn-check" type="radio" name="m2_range" id="m2_100" value="100+">
+            <input class="btn-check" type="radio" name="m2_range" id="m2_100" value="100+" />
             <label class="btn btn-outline-primary" for="m2_100">&gt;100 m²</label>
-
-            <input class="btn-check" type="radio" name="m2_range" id="m2_specifiek" value="specifiek">
+            <input class="btn-check" type="radio" name="m2_range" id="m2_specifiek" value="specifiek" />
             <label class="btn btn-outline-primary" for="m2_specifiek">Specifiek</label>
-
-            <input type="number" class="form-control d-none" id="m2_specifiek_input" placeholder="Aantal m²" min="1" step="1">
+            <input type="number" class="form-control d-none" id="m2_specifiek_input" placeholder="Aantal m²" min="1" step="1" />
           </div>
         </div>
 
-        <!-- 5. Afwerking -->
+        <!-- 5. Afwerking -->  
         <div class="mb-4">
-          <label class="fw-semibold form-label mb-2">5. Gewenste afwerking</label>
-          <select id="afwerking" class="form-select" multiple>
-            <option>Glad en schilder‑klaar</option>
-            <option>Buiten stucwerk</option>
-            <option>Klaar om te behangen</option>
-            <option>Waterdicht (bijv. badkamer)</option>
+          <label class="fw-semibold form-label mb-2">5. Gewenste afwerking <span class="text-muted small">(optioneel, meerdere)</span></label>
+          <select id="afwerking" name="afwerking" class="form-select" multiple>
+            <option value="glad_schilderklaar">Glad en schilder‑klaar</option>
+            <option value="buiten_stucwerk">Buiten stucwerk</option>
+            <option value="klaar_behangen">Klaar om te behangen</option>
+            <option value="waterdicht">Waterdicht (bijv. badkamer)</option>
           </select>
         </div>
 
         <!-- 6. Planning -->
         <div class="mb-4">
           <label class="fw-semibold form-label mb-2">6. Gewenste planning</label>
-          <select id="planning" class="form-select">
-            <option selected>Zo snel mogelijk</option>
-            <option>Binnen 1 maand</option>
-            <option>Binnen 3 maanden</option>
-            <option>Geen haast</option>
+          <select id="planning" name="planning" class="form-select">
+            <option value="zo_snel_mogelijk" selected>Zo snel mogelijk</option>
+            <option value="binnen_1_maand">Binnen 1 maand</option>
+            <option value="binnen_3_maanden">Binnen 3 maanden</option>
+            <option value="geen_haast">Geen haast</option>
           </select>
         </div>
 
@@ -191,176 +178,218 @@
         <div class="mb-4">
           <label class="fw-semibold form-label mb-2">7. Extra werkzaamheden</label>
           <div class="row g-2">
-            <div class="col-6 col-lg-4">
-              <input class="btn-check" type="checkbox" id="extra_verwijderen" value="Verwijderen oud stucwerk">
-              <label class="btn btn-outline-secondary w-100" for="extra_verwijderen">Verwijderen oud stucwerk</label>
-            </div>
-            <div class="col-6 col-lg-4">
-              <input class="btn-check" type="checkbox" id="extra_hoekprofielen" value="Hoekprofielen plaatsen">
-              <label class="btn btn-outline-secondary w-100" for="extra_hoekprofielen">Hoekprofielen plaatsen</label>
-            </div>
-            <div class="col-6 col-lg-4">
-              <input class="btn-check" type="checkbox" id="extra_afplakken" value="Afplakken / afdekken">
-              <label class="btn btn-outline-secondary w-100" for="extra_afplakken">Afplakken / afdekken</label>
-            </div>
-            <div class="col-6 col-lg-4">
-              <input class="btn-check" type="checkbox" id="extra_tegelen" value="Tegelen">
-              <label class="btn btn-outline-secondary w-100" for="extra_tegelen">Tegelen</label>
-            </div>
-            <div class="col-6 col-lg-4">
-              <input class="btn-check" type="checkbox" id="extra_saus" value="Sausen / spuiten">
-              <label class="btn btn-outline-secondary w-100" for="extra_saus">Sausen / spuiten</label>
-            </div>
+            <div class="col-6 col-lg-4"><input class="btn-check" type="checkbox" name="extras" id="extra_verwijderen" value="verwijderen_oud_stucwerk" /><label class="btn btn-outline-secondary w-100" for="extra_verwijderen">Verwijderen oud stucwerk</label></div>
+            <div class="col-6 col-lg-4"><input class="btn-check" type="checkbox" name="extras" id="extra_hoekprofielen" value="hoekprofielen" /><label class="btn btn-outline-secondary w-100" for="extra_hoekprofielen">Hoekprofielen plaatsen</label></div>
+            <div class="col-6 col-lg-4"><input class="btn-check" type="checkbox" name="extras" id="extra_afplakken" value="afplakken" /><label class="btn btn-outline-secondary w-100" for="extra_afplakken">Afplakken / afdekken</label></div>
+            <div class="col-6 col-lg-4"><input class="btn-check" type="checkbox" name="extras" id="extra_tegelen" value="tegelen" /><label class="btn btn-outline-secondary w-100" for="extra_tegelen">Tegelen</label></div>
+            <div class="col-6 col-lg-4"><input class="btn-check" type="checkbox" name="extras" id="extra_saus" value="sausen_spuiten" /><label class="btn btn-outline-secondary w-100" for="extra_saus">Sausen / spuiten</label></div>
           </div>
         </div>
 
-        <!-- Gegevens -->
+        <!-- Uw gegevens -->
         <h5 class="fw-bold mt-4">Uw gegevens</h5>
         <div class="row g-3">
           <div class="col-md-6">
-            <label class="form-label">Naam *</label>
-            <input class="form-control" name="naam" required>
+            <label class="form-label required">Naam</label>
+            <input type="text" class="form-control" name="naam" required />
+            <div class="invalid-feedback">Vul uw naam in.</div>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Telefoon *</label>
-            <input type="tel" class="form-control" name="telefoon" required>
+            <label class="form-label required">Telefoon</label>
+            <input type="tel" class="form-control" name="telefoon" required pattern="^[0-9 +()/-]{6,}$" />
+            <div class="invalid-feedback">Vul een geldig telefoonnummer in.</div>
           </div>
           <div class="col-md-6">
-            <label class="form-label">E‑mail *</label>
-            <input type="email" class="form-control" name="email" required>
+            <label class="form-label required">E‑mail</label>
+            <input type="email" class="form-control" name="email" required />
+            <div class="invalid-feedback">Vul een geldig e‑mailadres in.</div>
           </div>
           <div class="col-md-6">
             <label class="form-label">Adres</label>
-            <input class="form-control" name="adres">
-          </div>
-          <div class="col-12">
-            <label class="form-label">Foto toevoegen (optioneel)</label>
-            <input type="file" class="form-control" name="foto" accept="image/*">
+            <input type="text" class="form-control" name="adres" />
           </div>
         </div>
 
-        <button class="btn btn-primary w-100 mt-4" type="submit">Ontvang prijsindicatie &amp; verstuur e‑mail</button>
+        <input type="hidden" name="indicatieve_prijs" id="indicatieve_prijs_input" />
+        <button type="submit" class="btn btn-primary w-100 mt-4 fw-semibold">Bereken &amp; verzend</button>
+        <p class="mt-3 small text-muted mb-0">Door te verzenden gaat u akkoord met verwerking van uw gegevens ten behoeve van het opstellen van een offerte. Wij delen uw gegevens niet met derden.</p>
       </form>
+
+      <!-- <div id="resultaat" class="mt-4 d-none">
+        <div class="alert alert-info mb-0">
+          <strong>Indicatieve prijs:</strong> <span id="result_prijs"></span><br />
+          <small class="text-muted">Deze prijs is een schatting. Voor een definitieve offerte nemen wij contact met u op.</small>
+        </div>
+      </div> -->
     </div>
   </section>
 
-  <!-- ─────────── FOOTER ─────────── -->
+  <!-- FOOTER -->
   <footer class="py-4 text-center text-white footer">
     <div class="container">
-      <small>&copy; <span id="jaar"></span> BouwWonders. Alle rechten voorbehouden. |
-        Webdesign door <a href="https://davidcoffa.nl" class="text-white text-decoration-underline" target="_blank" rel="noopener">DavidCoffa.nl</a>
-      </small>
+      <small>&copy; <span id="jaar"></span> BouwWonders. Alle rechten voorbehouden. | Webdesign door <a href="https://davidcoffa.nl" class="text-white text-decoration-underline" target="_blank" rel="noopener">DavidCoffa.nl</a></small>
     </div>
   </footer>
 
-  <!-- ─────────── SCRIPTS ─────────── -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+  <!-- EmailJS SDK (laatste v3) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
+    /*************************************************
+     * CONFIGURATIE – PAS DIT AAN VOOR LIVE GEBRUIK  *
+     *************************************************/
+    const EMAILJS_PUBLIC_KEY = 'VUL_JE_PUBLIC_KEY_IN';          // emailjs.init('publicKey')
+    const EMAILJS_SERVICE_ID = 'VUL_JE_SERVICE_ID_IN';          // bv. 'service_xxxxxxx'
+    const EMAILJS_TEMPLATE_ID = 'template_pws18bl';             // bestaand template ID
+    const ONTVANGER_EMAIL = 'info@bouwwonders.nl';              // mailto ontvanger
+
+    // Init EmailJS
+    if(window.emailjs){ emailjs.init(EMAILJS_PUBLIC_KEY); }
+
+    // Jaar in footer
     document.getElementById('jaar').textContent = new Date().getFullYear();
 
-    /* ---------- config ---------- */
+    // Prijsconfiguratie
     const PRIJZEN = {
-      sausklaar:  { base: 21.95, "0-20": 23.95, "21-50": 23.50, "51-100": 23.05 },
-      behangklaar:{ base: 19.90, "0-20": 21.00, "21-50": 20.55, "51-100": 20.10 },
-      tegelklaar: { base: 28.95 },
-      buiten:     { base: 63.95, "0-20": 65.00, "21-50": 64.55, "51-100": 64.10 }
+      sausklaar:  { base:21.95, '0-20':23.95, '21-50':23.50, '51-100':23.05, '100+':21.95 },
+      behangklaar:{ base:19.90, '0-20':21.00, '21-50':20.55, '51-100':20.10, '100+':19.90 },
+      tegelklaar: { base:28.95, '0-20':28.95, '21-50':28.95, '51-100':28.95, '100+':28.95 },
+      buiten:     { base:63.95, '0-20':65.00, '21-50':64.55, '51-100':64.10, '100+':63.95 }
     };
-    const EXTRA_TOESLAG = 2.50; // toeslag voor baksteen/metselwerk bij binnen stucwerk
-    const RANGE_M2 = { "0-20":15, "21-50":35, "51-100":75, "100+":120 };
+    const EXTRA_TOESLAG = 2.50; // baksteen binnen
+    const RANGE_M2 = { '0-20':15, '21-50':35, '51-100':75, '100+':120 };
 
-    /* ---------- helper ---------- */
-    function format(num){return num.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2});}
+    // Toon / verberg specifiek m2 veld
+    const specRad = document.getElementById('m2_specifiek');
+    const specIn  = document.getElementById('m2_specifiek_input');
+    document.querySelectorAll('input[name="m2_range"]').forEach(r => {
+      r.addEventListener('change', () => {
+        const active = specRad.checked;
+        specIn.classList.toggle('d-none', !active);
+        specIn.required = active;
+        if(!active) specIn.value = '';
+      });
+    });
 
-    /* ---------- specifiek m2 veld toggle ---------- */
-    const specifiekRadio  = document.getElementById('m2_specifiek');
-    const specifiekInput  = document.getElementById('m2_specifiek_input');
-    const m2Radios        = document.querySelectorAll('input[name="m2_range"]');
-
-    m2Radios.forEach(r=>r.addEventListener('change',()=>{
-      if(specifiekRadio.checked){
-        specifiekInput.classList.remove('d-none');
-        specifiekInput.required = true;
-        specifiekInput.focus();
-      }else{
-        specifiekInput.classList.add('d-none');
-        specifiekInput.required = false;
-        specifiekInput.value = '';
-      }
-    }));
-
-    /* ---------- submit ---------- */
+    // Form referentie
     const form = document.getElementById('stucForm');
-    form.addEventListener('submit', e=>{
+
+    // Eenvoudige Bootstrap validatie
+    form.addEventListener('submit', (e) => {
+      if(!form.checkValidity()){
+        e.preventDefault();
+        e.stopPropagation();
+        form.classList.add('was-validated');
+      }
+    }, false);
+
+    form.addEventListener('submit', async function(e){
       e.preventDefault();
+
+      // Eigen extra validaties
+      const typeSel = form.querySelector('input[name="type"]:checked');
+      if(!typeSel){ alert('Selecteer het type stucwerk.'); return; }
+      const rangeSel = form.querySelector('input[name="m2_range"]:checked');
+      if(!rangeSel){ alert('Selecteer de oppervlakte.'); return; }
+      if(specRad.checked){
+        const val = parseFloat(specIn.value.replace(',', '.'));
+        if(!val || val <= 0){ alert('Voer een geldig specifiek m² in.'); return; }
+      }
+
       const fd = new FormData(form);
 
-      // vereiste velden
-      const types = fd.getAll('type');
-      if(!types.length){alert('Selecteer minimaal één type stucwerk.');return;}
-
-      const m2Range = fd.get('m2_range');
-      if(!m2Range){alert('Selecteer het aantal m².');return;}
-
-      // oppervlakte bepalen
+      // m² bepalen
       let m2;
+      const m2Range = fd.get('m2_range');
       if(m2Range === 'specifiek'){
-        m2 = parseFloat(specifiekInput.value);
-        if(!m2 || m2 <= 0){alert('Voer een geldig aantal m² in.');return;}
-      }else{
+        m2 = parseFloat(specIn.value.replace(',', '.'));
+      } else {
         m2 = RANGE_M2[m2Range];
       }
 
-      // prijsberekening
-      const prijsPerM2 = types.reduce((sum,t)=>sum+(PRIJZEN[t][m2Range]??PRIJZEN[t].base),0)/types.length;
+      // Prijs per m²
+      const t = fd.get('type');
+      const prijsConfig = PRIJZEN[t];
+      const prijsPerM2 = prijsConfig[m2Range] ?? prijsConfig.base;
 
-      // toeslag baksteen (alleen binnen)
+      // Toeslag alleen als baksteen + NIET buitenwerk
       const ondergronden = fd.getAll('ondergrond');
-      let toeslag = 0;
-      if(ondergronden.includes('baksteen') && !types.includes('buiten')){
-        toeslag += EXTRA_TOESLAG;
-      }
+      const toeslag = (ondergronden.includes('baksteen') && t !== 'buiten') ? EXTRA_TOESLAG : 0;
 
       const totaal = ((prijsPerM2 + toeslag) * m2).toFixed(2);
 
-      /* --------- e‑mail --------- */
-      const tel        = fd.get('telefoon')  || '';
-      const naam       = fd.get('naam')      || '';
-      const email      = fd.get('email')     || '';
-      const adres      = fd.get('adres')     || '';
-      const planning   = document.getElementById('planning').value;
-      const afwerkingen = Array.from(document.getElementById('afwerking').selectedOptions).map(o=>o.value).join(', ') || 'n.v.t.';
-      const ruimtes     = fd.getAll('ruimte').join(', ') || 'n.v.t.';
-      const extras      = ['extra_verwijderen','extra_hoekprofielen','extra_afplakken','extra_tegelen','extra_saus']
-                          .filter(id=>document.getElementById(id).checked)
-                          .map(id=>document.querySelector(`label[for="${id}"]`).textContent.trim())
-                          .join(', ') || 'geen';
+      // Resultaat tonen
+      form.querySelector('#indicatieve_prijs_input').value = `€${totaal}`;
+      document.getElementById('result_prijs').textContent = `€${totaal}`;
+      document.getElementById('resultaat').classList.remove('d-none');
 
-      const subject = encodeURIComponent('Aanvraag stucwerk rekentool');
+      // Verzamel multi-select waarden
+      const afwerkingSelect = document.getElementById('afwerking');
+      const afwerkingen = Array.from(afwerkingSelect.selectedOptions).map(o => o.value);
+
+      const templateParams = {
+        naam: fd.get('naam'),
+        telefoon: fd.get('telefoon'),
+        email: fd.get('email'),
+        adres: fd.get('adres') || '-',
+        type_stucwerk: t,
+        ondergrond: ondergronden.join(', ') || '-',
+        ruimte: fd.getAll('ruimte').join(', ') || '-',
+        m2: m2,
+        indicatieve_prijs: `€${totaal}`,
+        planning: fd.get('planning'),
+        extras: fd.getAll('extras').join(', ') || '-',
+        afwerking: afwerkingen.join(', ') || '-'
+      };
+
+      // EmailJS verzenden (best effort)
+      let emailJsOk = false;
+      if(window.emailjs && EMAILJS_PUBLIC_KEY.startsWith('VUL_') === false && EMAILJS_SERVICE_ID.startsWith('VUL_') === false){
+        try {
+          const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+          console.log('EmailJS verzonden', res.status, res.text);
+          emailJsOk = true;
+        } catch(err){
+          console.warn('EmailJS fout', err);
+        }
+      } else {
+        console.info('EmailJS niet geconfigureerd of keys nog placeholders. Mailto fallback wordt gebruikt.');
+      }
+
+      if(emailJsOk){
+        alert('Bedankt! We hebben uw aanvraag ontvangen en nemen spoedig contact op.');
+      } else {
+        // Fallback melding
+        alert('Bedankt! We proberen uw e-mailclient te openen. Als dit niet lukt, stuur ons dan handmatig een e-mail.');
+      }
+
+      // MAILTO fallback / extra kopie voor gebruiker
+      const subject = encodeURIComponent('Nieuwe stucwerk aanvraag');
       const bodyLines = [
-        `Naam: ${naam}`,
-        `Telefoon: ${tel}`,
-        `E‑mail: ${email}`,
-        `Adres: ${adres}`,
-        `---`,
-        `Gekozen type(n): ${types.join(', ')}`,
-        `Ondergrond(en): ${ondergronden.join(', ')||'n.v.t.'}`,
-        `Ruimte(n): ${ruimtes}`,
-        `Afwerking(en): ${afwerkingen}`,
-        `Extra werkzaamheden: ${extras}`,
-        `Oppervlakte: ${m2} m²`,
-        `Gewenste planning: ${planning}`,
-        `Indicatieve prijs: €${totaal}`,
-        ``,
-        `Opmerking: exacte prijs volgt na vrijblijvende opname.`
+        'Nieuwe aanvraag via de stucwerk rekentool:',
+        '',
+        `Naam: ${templateParams.naam}`,
+        `Telefoon: ${templateParams.telefoon}`,
+        `E-mail: ${templateParams.email}`,
+        `Adres: ${templateParams.adres}`,
+        `Type stucwerk: ${templateParams.type_stucwerk}`,
+        `Ondergrond: ${templateParams.ondergrond}`,
+        `Ruimte: ${templateParams.ruimte}`,
+        `Afwerking: ${templateParams.afwerking}`,
+        `m²: ${templateParams.m2}`,
+        `Indicatieve prijs: ${templateParams.indicatieve_prijs}`,
+        `Planning: ${templateParams.planning}`,
+        `Extra werkzaamheden: ${templateParams.extras}`,
+        '',
+        'Verstuurd vanaf de BouwWonders rekentool.'
       ];
+      const body = encodeURIComponent(bodyLines.join('\n'));
 
-      window.location.href = `mailto:info@bouwwonders.nl?subject=${subject}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-
-      // reset form
-      form.reset();
-      specifiekInput.classList.add('d-none');
-      specifiekInput.required = false;
+      // Klein uitstel zodat UI update zichtbaar is
+      setTimeout(() => {
+        window.location.href = `mailto:${ONTVANGER_EMAIL}?subject=${subject}&body=${body}`;
+      }, 200);
     });
   </script>
 </body>

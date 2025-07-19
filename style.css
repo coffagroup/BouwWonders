@@ -1,3 +1,4 @@
+
 /* ─────────── KLEUREN ─────────── */
 :root {
   --bw-dark:  #143861;
@@ -226,7 +227,7 @@ body       { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
   background:#fff;
   transition:transform .35s, box-shadow .35s;
   margin-inline:auto;         /* centreert in de container */
-  max-height: 43.75rem;
+  max-height: 63.75rem;
   margin-top: 3.125rem;
 }
 
@@ -250,4 +251,53 @@ body       { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
 
   /* minder top‑padding bij de testimonials */
   section.py-5.bg-light{ padding-top:2rem!important; }
+}
+
+/* ─── Diensten Sectie ─── */
+.services {
+  background-color: #fff;
+}
+
+.services-header h2 {
+  font-size: 2.5rem;
+  color: #223280;
+}
+
+.services-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Grid van blokken */
+.service-block {
+  background-color: #f7f7f7;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-block h3 {
+  color: #000;
+}
+
+.service-block p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hover-effect */
+.service-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-color: #223280;
+}
+
+/* Responsive aanpassingen */
+@media (max-width: 1024px) {
+  .services-header h2 { font-size: 2rem; }
+  .services-header p  { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .services-header h2 { font-size: 1.8rem; }
+  .services-header p  { font-size: 0.95rem; }
 }
